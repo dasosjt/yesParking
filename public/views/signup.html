@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Symthomap</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Registrarse</h1>
+
+    <!-- Modal content-->
+    <div ng-hide="showModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h4 class="modal-title">{{titleModal}}</h4>
+          </div>
+          <div class="modal-body">
+            <p>{{contentModal}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="closeModal()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <form ng-submit="sendSignUp()">
+      <div class="form-group">
+        <label>Email</label>
+        <input ng-model="fields.email" type="text" class="form-control"></input>
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input ng-model="fields.password0" type="password" class="form-control"></input>
+      </div>
+      <div class="form-group">
+        <label>Ingrese de nuevo su contraseña</label>
+        <input ng-model="fields.password1" type="password" class="form-control"></input>
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block btn-lg">Registrarse</button>
+    </form>
+
+    <hr>
+
+    <p>Ya tienes una cuenta? <a href="/login">Iniciar Sesion</a></p>
+    <p>O regresar a <a href="/">inicio</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>

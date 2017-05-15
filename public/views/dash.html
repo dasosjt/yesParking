@@ -1,0 +1,50 @@
+<style>
+    #map {
+        height: 60%;
+        width: 100%;
+    }
+</style>
+
+<body>
+  <!-- Modal content-->
+  <div ng-hide="showModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h4 class="modal-title">{{titleModal}}</h4>
+        </div>
+        <div class="modal-body">
+          <h4>{{contentModal}} Q</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" ng-click="closeModal()">Ya salí del parqueo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbyY1wV-t99MyrHaZe1i9uuDS6Cded3sk">
+    <ng-map zoom="8" center="[14.6263757, -90.5626014]">
+      <directions
+          draggable="true"
+          travel-mode="DRIVING"
+          origin="current-location"
+          destination="{{goLocation.latitude}}, {{goLocation.longitude}}">
+      </directions>
+      <info-window id="myInfoWindow">
+        <div ng-non-bindable>
+          <h4>{{selectedLocation.name}}</h4>
+          <h5>Información: {{selectedLocation.info}}</h5>
+          <h6>Cantidad de Estrellas: {{selectedLocation.stars}}</h6>
+          <h6>Tarifa: {{selectedLocation.priceperhour}} Quetzales por hora</h6>
+          <button class=".btn .btn-success" ng-click="selectGoLocation(event, selectedLocation)">Ir</button>
+          <button class=".btn .btn-success" ng-click="startCounter(selectedLocation.priceperhour)">Comenzar tarifa</button>
+        </div>
+      </info-window>
+      <marker ng-repeat="x in locations"
+              position="{{x.latitude}}, {{x.longitude}}" title={{x.name}} on-click="selectLocation(event, x)" >
+      </marker>
+    </ng-map>
+  </div>
+</body>

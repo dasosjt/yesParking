@@ -1,0 +1,10 @@
+{
+      "name": "yesParking",
+      "main": "server.js",
+      "dependencies": {
+        "express" : "~4.5.1",
+        "mongoose" : "4.9.8",
+        "body-parser" : "~1.4.2",
+        "method-override" : "~2.0.2"
+      }
+    }
